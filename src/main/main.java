@@ -33,14 +33,24 @@ public class main {
 
         Warrior don = new Palladin("Дмитрий", 100, 100, new Sword(), new Shield());
         Warrior ser = new Archer("Вовка", 100, 100, new Bow(), new Сhainmail());
+        System.out.println(don + "\n" + "Бьется c \n" + ser + "\n");
         while (don.getHealth() >= 0 && ser.getHealth() >= 0) {
             int kickDon = don.SetDamage(ser);
             System.out.println("Воин " + ser.getName() + " получил урон - " + kickDon + " сейчас у него - " + ser.getHealth() + " очков жизни \n");
             int kickSer = ser.SetDamage(don);
             System.out.println("Воин " + don.getName() + " получил урон - " + kickSer + " сейчас у него - " + don.getHealth() + " очков жизни \n");
+            if (don.getHealth() <= 0){
+                System.out.println( "Победил " + ser.getName());
+                break;
+            } else if (ser.getHealth() <= 0) {
+                System.out.println( "Победил " + don.getName());
+                break;
+            }else{
+                System.out.println("Оба сдохли");
+                break;
+            }
         }
-        System.out.println(don);
-        System.out.println(ser);
+
     }
 }
 
